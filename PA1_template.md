@@ -28,6 +28,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 ```r
 #Calculate the total number of steps taken per day
 library(plyr)
+library(httpuv)
 dtsum <- ddply(dt2, .(date), summarise,  sumsteps=sum(steps, na.rm=TRUE))
 ```
 ###2.Histogram of the total number of steps taken each day
