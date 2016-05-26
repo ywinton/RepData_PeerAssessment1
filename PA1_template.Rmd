@@ -40,8 +40,8 @@ summedian<-median(dtsum$sumsteps)
 summean<-format(round(mean(dtsum$sumsteps)),nsmall=1)
 summary(dtsum)
 ```
-###Mean of steps taken each day is `r summean`. 
-###Median of steps taken each day is `r summedian`.
+###Mean of steps taken each day is 10766. 
+###Median of steps taken each day is 10765.
 
 ## What is the average daily activity pattern?
 - Make a time series plot (i.e. 𝚝𝚢𝚙𝚎 = "𝚕") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -62,8 +62,9 @@ plot(dtint$interval,dtint$avgsteps,type="l",xlab="Interval of day (mins)",
 dtmax<-subset(dtint,dtint$avgsteps==max(dtint$avgsteps))
 minterval<-dtmax$interval
 msteps<-format(round(dtmax$avgsteps),nsmall=1)
+dtmax
 ```
-###Interval #`r minterval` has maximum average of `r msteps` steps.
+###Interval #835 has maximum average of 206 steps.
 
 
 ## Imputing missing values
@@ -76,9 +77,9 @@ Note that there are a number of days/intervals where there are missing values (c
 
 ###6.Code to describe and show a strategy for imputing missing data
 ```{r}
-missing<- sum(is.na(dt1$steps))
+sum(is.na(dt1$steps))
 ```
-###Total number of rows with NAs = `r missing`
+###Total number of rows with NAs = 2304
 ###I will fill in all the NAs with the mean of the steps of the same 5-min interval across all the days.
 
 ```{r}
@@ -114,8 +115,8 @@ summean3<-format(round(mean(dtsum3$sumsteps)),nsmall=1)
 
 summary(dtsum3)
 ```
-###Mean of steps taken each day is `r summean3`. 
-###Median number of steps taken each day is `r summedian3`.
+###Mean of steps taken each day is 10766. 
+###Median number of steps taken each day is 10766.
 ###The mean of total steps taken each day is the same between datasets with NA and NA replaced, but the median increases after NAs are replaced with average steps of each interval.
 ## Are there differences in activity patterns between weekdays and weekends?
 For this part the 𝚠𝚎𝚎𝚔𝚍𝚊𝚢𝚜() function may be of some help here. Use the dataset with the filled-in missing values for this part.

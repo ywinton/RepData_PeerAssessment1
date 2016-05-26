@@ -166,8 +166,8 @@ summary(dtsum)</code></pre>
 ##  3rd Qu.:2012-11-16   3rd Qu.:13294  
 ##  Max.   :2012-11-29   Max.   :21194</code></pre>
 </div>
-<div id="mean-of-steps-taken-each-day-is-10766.0." class="section level3">
-<h3>Mean of steps taken each day is 10766.0.</h3>
+<div id="mean-of-steps-taken-each-day-is-10766." class="section level3">
+<h3>Mean of steps taken each day is 10766.</h3>
 </div>
 <div id="median-of-steps-taken-each-day-is-10765." class="section level3">
 <h3>Median of steps taken each day is 10765.</h3>
@@ -192,10 +192,13 @@ dtint&lt;- ddply(dt2, .(interval), summarise, avgsteps=mean(steps, na.rm=TRUE))<
 <h3>5.The 5-minute interval that, on average, contains the maximum number of steps</h3>
 <pre class="r"><code>dtmax&lt;-subset(dtint,dtint$avgsteps==max(dtint$avgsteps))
 minterval&lt;-dtmax$interval
-msteps&lt;-format(round(dtmax$avgsteps),nsmall=1)</code></pre>
+msteps&lt;-format(round(dtmax$avgsteps),nsmall=1)
+dtmax</code></pre>
+<pre><code>##     interval avgsteps
+## 104      835 206.1698</code></pre>
 </div>
-<div id="interval-835-has-maximum-average-of-206.0-steps." class="section level3">
-<h3>Interval #835 has maximum average of 206.0 steps.</h3>
+<div id="interval-835-has-maximum-average-of-206-steps." class="section level3">
+<h3>Interval #835 has maximum average of 206 steps.</h3>
 </div>
 </div>
 <div id="imputing-missing-values" class="section level2">
@@ -209,7 +212,8 @@ msteps&lt;-format(round(dtmax$avgsteps),nsmall=1)</code></pre>
 </ul>
 <div id="code-to-describe-and-show-a-strategy-for-imputing-missing-data" class="section level3">
 <h3>6.Code to describe and show a strategy for imputing missing data</h3>
-<pre class="r"><code>missing&lt;- sum(is.na(dt1$steps))</code></pre>
+<pre class="r"><code>sum(is.na(dt1$steps))</code></pre>
+<pre><code>## [1] 2304</code></pre>
 </div>
 <div id="total-number-of-rows-with-nas-2304" class="section level3">
 <h3>Total number of rows with NAs = 2304</h3>
@@ -267,11 +271,11 @@ summary(dtsum3)</code></pre>
 ##  3rd Qu.:2012-11-15   3rd Qu.:12811  
 ##  Max.   :2012-11-30   Max.   :21194</code></pre>
 </div>
-<div id="mean-of-steps-taken-each-day-is-10766.0.-1" class="section level3">
-<h3>Mean of steps taken each day is 10766.0.</h3>
+<div id="mean-of-steps-taken-each-day-is-10766.-1" class="section level3">
+<h3>Mean of steps taken each day is 10766.</h3>
 </div>
-<div id="median-number-of-steps-taken-each-day-is-10766.0." class="section level3">
-<h3>Median number of steps taken each day is 10766.0.</h3>
+<div id="median-number-of-steps-taken-each-day-is-10766." class="section level3">
+<h3>Median number of steps taken each day is 10766.</h3>
 </div>
 <div id="the-mean-of-total-steps-taken-each-day-is-the-same-between-datasets-with-na-and-na-replaced-but-the-median-increases-after-nas-are-replaced-with-average-steps-of-each-interval." class="section level3">
 <h3>The mean of total steps taken each day is the same between datasets with NA and NA replaced, but the median increases after NAs are replaced with average steps of each interval.</h3>
