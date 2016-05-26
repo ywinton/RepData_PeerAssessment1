@@ -133,6 +133,10 @@ dt4$level<-ifelse(dt4$day=="Saturday"|dt4$day=="Sunday" ,"weekend","weekday")
 ```{r}
 library(ggplot2) 
 dtint4<- ddply(dt4, .(interval, level), summarise, avgsteps=mean(steps, na.rm=TRUE))
-qplot(interval, avgsteps, data=dtint4, geom=c("line"), xlab="Interval",ylab="Number of steps")+facet_wrap(~level, ncol=1)
+q<-qplot(interval, avgsteps, data=dtint4, geom=c("line"), xlab="Interval",ylab="Number of steps")+facet_wrap(~level, ncol=1)
+
+q
 ```
+
+### OK... My qplot looks GREAT, but as soon as I push it to GitHub, the qplots are gone!!  I will try to use another plotting system instead.  Please let me know if you know how to get the qplots to show up.
 
