@@ -38,7 +38,7 @@ hist(dtsum$sumsteps,main="Histogram of Total Number of Steps Each Day",
      xlab="Sum of Steps Each Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](Plot4.png)<!-- -->
 
 ###3.Mean and median number of steps taken each day
 
