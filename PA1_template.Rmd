@@ -135,3 +135,4 @@ library(ggplot2)
 dtint4<- ddply(dt4, .(interval, level), summarise, avgsteps=mean(steps, na.rm=TRUE))
 qplot(interval, avgsteps, data=dtint4, geom=c("line"), xlab="Interval",ylab="Number of steps")+facet_wrap(~level, ncol=1)
 ```
+
