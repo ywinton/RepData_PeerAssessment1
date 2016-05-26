@@ -209,5 +209,5 @@ dtint4<- ddply(dt4, .(interval, level), summarise, avgsteps=mean(steps, na.rm=TR
 xyplot(avgsteps ~ interval | factor(level), data=dtint4 , aspect =1/2, type="l")
 ```
 
-![](Plot8.png)
+![](Plot8.png) 
 
