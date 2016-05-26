@@ -1,4 +1,6 @@
 # Reproducible Research: Peer Assessment 1
+#Reproducible Research: Peer Assessment 1
+
 
 ```r
 #set working directory
@@ -55,7 +57,7 @@ summary(dtsum)
 ##  3rd Qu.:2012-11-16   3rd Qu.:13294  
 ##  Max.   :2012-11-29   Max.   :21194
 ```
-###Mean of steps taken each day is 10766.0. 
+###Mean of steps taken each day is 10766. 
 ###Median of steps taken each day is 10765.
 
 ## What is the average daily activity pattern?
@@ -82,8 +84,14 @@ plot(dtint$interval,dtint$avgsteps,type="l",xlab="Interval of day (mins)",
 dtmax<-subset(dtint,dtint$avgsteps==max(dtint$avgsteps))
 minterval<-dtmax$interval
 msteps<-format(round(dtmax$avgsteps),nsmall=1)
+dtmax
 ```
-###Interval #835 has maximum average of 206.0 steps.
+
+```
+##     interval avgsteps
+## 104      835 206.1698
+```
+###Interval #835 has maximum average of 206 steps.
 
 
 ## Imputing missing values
@@ -97,7 +105,11 @@ Note that there are a number of days/intervals where there are missing values (c
 ###6.Code to describe and show a strategy for imputing missing data
 
 ```r
-missing<- sum(is.na(dt1$steps))
+sum(is.na(dt1$steps))
+```
+
+```
+## [1] 2304
 ```
 ###Total number of rows with NAs = 2304
 ###I will fill in all the NAs with the mean of the steps of the same 5-min interval across all the days.
@@ -172,8 +184,8 @@ summary(dtsum3)
 ##  3rd Qu.:2012-11-15   3rd Qu.:12811  
 ##  Max.   :2012-11-30   Max.   :21194
 ```
-###Mean of steps taken each day is 10766.0. 
-###Median number of steps taken each day is 10766.0.
+###Mean of steps taken each day is 10766. 
+###Median number of steps taken each day is 10766.
 ###The mean of total steps taken each day is the same between datasets with NA and NA replaced, but the median increases after NAs are replaced with average steps of each interval.
 ## Are there differences in activity patterns between weekdays and weekends?
 For this part the 𝚠𝚎𝚎𝚔𝚍𝚊𝚢𝚜() function may be of some help here. Use the dataset with the filled-in missing values for this part.
@@ -192,7 +204,12 @@ dt4$level<-ifelse(dt4$day=="Saturday"|dt4$day=="Sunday" ,"weekend","weekday")
 ```r
 library(ggplot2) 
 dtint4<- ddply(dt4, .(interval, level), summarise, avgsteps=mean(steps, na.rm=TRUE))
-qplot(interval, avgsteps, data=dtint4, geom=c("line"), xlab="Interval",ylab="Number of steps")+facet_wrap(~level, ncol=1)
+q<-qplot(interval, avgsteps, data=dtint4, geom=c("line"), xlab="Interval",ylab="Number of steps")+facet_wrap(~level, ncol=1)
+
+q
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+
+### OK... My qplot looks GREAT, but as soon as I push it to GitHub, the qplots are gone!!  I will try to use another plotting system instead.  Please let me know if you know how to get the qplots to show up.
+
