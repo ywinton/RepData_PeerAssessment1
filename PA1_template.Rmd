@@ -1,5 +1,4 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
 output: 
   html_document:
     keep_md: true
@@ -141,6 +140,5 @@ dt4$level<-ifelse(dt4$day=="Saturday"|dt4$day=="Sunday" ,"weekend","weekday")
 library(lattice)
 dtint4<- ddply(dt4, .(interval, level), summarise, avgsteps=mean(steps, na.rm=TRUE)) 
 xyplot(avgsteps ~ interval | factor(level), data=dtint4 , aspect =1/2, type="l")
-
 ```
 
