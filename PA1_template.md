@@ -1,4 +1,4 @@
-# Reproducible Research: Peer Assessment 1
+
 #Reproducible Research: Peer Assessment 1
 
 
@@ -38,7 +38,7 @@ hist(dtsum$sumsteps,main="Histogram of Total Number of Steps Each Day",
      xlab="Sum of Steps Each Day")
 ```
 
-![](Plot4.png)<!-- -->
+![](Plot4.png)
 
 ###3.Mean and median number of steps taken each day
 
