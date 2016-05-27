@@ -38,7 +38,7 @@ hist(dtsum$sumsteps,main="Histogram of Total Number of Steps Each Day",
      xlab="Sum of Steps Each Day")
 ```
 
-![](histogram1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)
 
 ###3.Mean and median number of steps taken each day
 
@@ -77,7 +77,7 @@ plot(dtint$interval,dtint$avgsteps,type="l",xlab="Interval of day (mins)",
      main="Average Number of Steps by Interval of Day")
 ```
 
-![](Plot4.png)
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)
 
 ###5.The 5-minute interval that, on average, contains the maximum number of steps
 
@@ -167,7 +167,7 @@ hist(dtsum3$sumsteps,main="Histogram of Total Number of Steps Each Day (Imput NA
      xlab="Sum of Steps Each Day")
 ```
 
-![](Plot7.png)
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)
 
 
 ```r
@@ -209,5 +209,5 @@ dtint4<- ddply(dt4, .(interval, level), summarise, avgsteps=mean(steps, na.rm=TR
 xyplot(avgsteps ~ interval | factor(level), data=dtint4 , aspect =1/2, type="l")
 ```
 
-![](Plot8.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
 
